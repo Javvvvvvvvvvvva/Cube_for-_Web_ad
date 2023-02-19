@@ -1,0 +1,187 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container
+{
+    position: relative;
+    top: -80px;
+    transform: skewY(-20deg);
+    animation: animate 5s linear infinite;
+}
+
+@keyframes animate
+{
+    0%
+    {
+        filter: hue-rotate(0deg);
+    }
+    100%
+    {
+        filter: hue-rotate(360deg);
+    }
+}
+
+.container .cube
+{
+    position: relative;
+    z-index: 2;
+}
+
+.container .cube:nth-child(2)
+{
+    z-index:   1;
+    transform: translate(-60px, -60px);
+}
+
+.container .cube:nth-child(3)
+{
+    z-index: 3;
+    transform: translate(60px, 60px);
+}
+
+.container .cube div
+{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    transform: translate(calc(-70px * var(--x)), calc(-60px * var(--y)));
+}
+
+.container .cube div span
+{
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: antiquewhite;
+    z-index: calc(1 * var(--i));
+    transition: 1.5s;
+}
+
+.container .cube div span:hover
+{
+    transition: 0s;
+    background: red;
+    filter: drop-shadow(0 0 30px red);
+}
+
+.container .cube div span::before
+{
+    content: '';
+    position: absolute;
+    left: -40px;
+    width: 40px;
+    height: 100%;
+    background: #fff;
+    transform-origin: right;
+    transform: skewY(45deg);
+    transition: 1.5s;
+    z-index: -1;
+}
+.container .cube div span:hover::before
+{
+    transition: 0s;
+    background: #f75d64;
+    z-index: -1;
+}
+.container .cube div span::after
+{
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: #f2f2f2;
+    transform-origin: bottom;
+    transform: skewX(45deg);
+    transition: 1.5s;
+}
+.container .cube div span:hover::after
+{
+    transition: 0s;
+    background: #f14e55;
+}
+
+section
+{
+    position: absolute;
+    height: 100vh;
+    overflow: hidden;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+section i
+{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background: #222;
+}
+section i:nth-child(5n+1)
+{
+    animation: animatecube 5s linear infinite, animateBg 5s linear infinite;
+    animation-delay: calc(-3s * var(--i));
+}
+section i:nth-child(5n+2)
+{
+    animation: animatecube 6s linear infinite, animateBg 5s linear infinite;
+    animation-delay: calc(-3.5s * var(--i));
+}
+section i:nth-child(5n+3)
+{
+    animation: animatecube 7s linear infinite, animateBg 5s linear infinite;
+    animation-delay: calc(-4s * var(--i));
+}
+section i:nth-child(5n+4)
+{
+    animation: animatecube 8s linear infinite, animateBg 5s linear infinite;
+    animation-delay: calc(-4.5s * var(--i));
+}
+section i:nth-child(5n+5)
+{
+    animation: animatecube 9s linear infinite, animateBg 5s linear infinite;
+    animation-delay: calc(-5s * var(--i));
+}
+@keyframes animatecube
+{
+    0%,20%
+    {
+        background: #222;
+    }
+    60%
+    {
+        background: #060;
+    }
+    80%,100%
+    {
+        background: #222;
+    }
+}
+@keyframes animateBg
+{
+    0%
+    {
+        filter: hue-rotate(0deg);
+    }
+    100%
+    {
+        filter: hue-rotate(360deg);
+    }
+}

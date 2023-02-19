@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promote your homepage</title>
+    <style>
+        body {
+            text-align: center;
+            padding-top: 50px;
+            background-color: black;
+            color: white;
+        }
+
+        button {
+            margin-top: 50px;
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        alert('This page is empty.');
+        document.addEventListener("DOMContentLoaded", function() {
+            document.title = 'Promote your homepage';
+            var h3 = document.createElement('h3');
+            h3.innerHTML = 'This page is empty.';
+            document.body.appendChild(h3);
+            var p1 = document.createElement('p');
+            p1.innerHTML = 'This website is the cheapest and the most';
+            document.body.appendChild(p1);
+            var p2 = document.createElement('p');
+            p2.innerHTML = 'groundbreaking website for advertising your thing.';
+            document.body.appendChild(p2);
+            var p3 = document.createElement('p');
+            p3.innerHTML = 'There\'s a two way add your website on here.';
+            document.body.appendChild(p3);
+            var li = document.createElement('li');
+            li.innerHTML = 'Contact us @gmail.com';
+            document.body.appendChild(li);
+            var button = document.createElement('button');
+            button.innerHTML = 'click me';
+            document.body.appendChild(button);
+            button.onclick = function() {
+                window.location.href = 'Cube.html';
+            };
+        });
+    </script>
+</body>
+</html>
